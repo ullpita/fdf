@@ -1,22 +1,27 @@
-##
-## Makefile for MiniLibX in /home/boulon/work/c/raytraceur/minilibx
-## 
-## Made by Olivier Crouzet
-## Login   <ol@epitech.net>
-## 
-## Started on  Tue Oct  5 15:56:43 2004 Olivier Crouzet
-## Last update Tue May 15 15:44:41 2007 Olivier Crouzet
-##
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: upierre- <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/05/10 12:19:19 by upierre-          #+#    #+#              #
+#    Updated: 2017/05/10 12:24:15 by upierre-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-## Please use configure script
+NAME = fdf
+
+CC = clang
+CCFLAGS = -Werror -Wextra -Wall
+FRMW = -framework OpenGL -framework -Appkit
+
+D_SRC = src
+D_MLX = minilibx_macos
+
+LDL = $(addprefix -L, $(D_LIBFT))
+LDM = $(addprefix -L, $(D_MLX))
+
+F_SRC = main.c\
 
 
-all	: do_configure
-
-do_configure	:
-	./configure
-
-clean	:
-	./configure clean
-
-re	: clean all
