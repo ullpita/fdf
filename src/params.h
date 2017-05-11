@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   params.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/10 14:13:59 by upierre-          #+#    #+#             */
-/*   Updated: 2017/05/11 14:29:24 by upierre-         ###   ########.fr       */
+/*   Created: 2017/05/11 11:26:14 by upierre-          #+#    #+#             */
+/*   Updated: 2017/05/11 11:47:51 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FT_LIST_H
 
-# include "../minilibx_macos/mlx.h"
-# include "../libft/inc/libft.h"
-# include <fcntl.h>
-# include <math.h>
+# define FT_LIST_H
 
-typedef struct		s_env
+typedef struct		s_list
 {
-	void			*mlx;
-	void			*win;
-}					t_env;
+	struct s_list	*next;
+	void			*data;
+}					t_list;
 
 #endif
