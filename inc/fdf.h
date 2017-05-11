@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:59 by upierre-          #+#    #+#             */
-/*   Updated: 2017/05/11 14:29:24 by upierre-         ###   ########.fr       */
+/*   Updated: 2017/05/11 15:53:35 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FDF_H
 
 # include "../minilibx_macos/mlx.h"
-# include "../libft/inc/libft.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 # include <math.h>
 

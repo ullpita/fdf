@@ -6,20 +6,21 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 09:38:08 by upierre-          #+#    #+#             */
-/*   Updated: 2017/05/11 14:39:13 by upierre-         ###   ########.fr       */
+/*   Updated: 2017/05/11 16:38:09 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx_macos/mlx.h"
-//#include "../inc/fdf.h"
+#include "../inc/fdf.h"
 #include <stdio.h>
+#include <unistd.h>
 
-int		my_key_funct(int keycode, void *param)
+int		my_key_funct(int keycode, t_env *e)
 {
 	printf("key event %d\n", keycode);
 	if (keycode == 12)
-		mlx_pixel_put(e->mlx, e->win, 50, 50, 0x00FFFFFF);
-	(void)*param;
+		mlx_pixel_put(e->mlx, e->win, 200, 200, 0x00FF00FF);
+	if (keycode == 13)
+		mlx_pixel_put(e->mlx, e->win, 325, 325, 0x00FF00FF);
 	return(0);
 }
 /*
@@ -34,14 +35,12 @@ int		gere_mouse(int button, int x, int y, void *param)
 
 int		main()
 {
-	void	*mlx;
-	void	*window;
 	int		x;
 	int		y;
 	t_env	e;
 
 	e.mlx = mlx_init();
-	e.win = mlx_new_window(mlx, 400, 400, "mlx 42");
+	e.win = mlx_new_window(e.mlx, 400, 400, "mlx 42");
 	y = 125;
 	while(y <= 275) 
 	{
@@ -53,7 +52,8 @@ int		main()
 		}
 		y++;
 	}
+	mlx_pixel_put(e.mlx, e.win, 75, 75, 0x00FF00FF);
 	mlx_key_hook(e.win, my_key_funct, &e);
 //	mlx_mouse_hook(window, gere_mouse, &e);
-	mlx_loop(mlx);
+	mlx_loop(e.mlx);
 }
