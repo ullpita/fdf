@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 09:38:08 by upierre-          #+#    #+#             */
-/*   Updated: 2017/05/11 16:38:09 by upierre-         ###   ########.fr       */
+/*   Updated: 2017/05/16 15:06:57 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,20 @@ int		my_key_funct(int keycode, t_env *e)
 		mlx_pixel_put(e->mlx, e->win, 325, 325, 0x00FF00FF);
 	return(0);
 }
-/*
+
 int		gere_mouse(int button, int x, int y, void *param)
 {
-	printf("you touched the target %d", button);
+/*	if (button)
+	{
+		write(1, "\nclic", 5);
+		printf("%d\n", button);
+	}*/
+	printf("button event %d\n", button);
 	(void)*param;
 	(void)x;
 	(void)y;
 	return(0);
-}*/
+}
 
 int		main()
 {
@@ -53,7 +58,8 @@ int		main()
 		y++;
 	}
 	mlx_pixel_put(e.mlx, e.win, 75, 75, 0x00FF00FF);
+	mlx_mouse_hook(e.win, gere_mouse, &e);
 	mlx_key_hook(e.win, my_key_funct, &e);
-//	mlx_mouse_hook(window, gere_mouse, &e);
+//	mlx_mouse_hook(e.win, gere_mouse, &e);
 	mlx_loop(e.mlx);
 }
